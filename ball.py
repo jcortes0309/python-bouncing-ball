@@ -2,13 +2,14 @@ import pygame
 import random
 
 class Ball(object):
-    def __init__(self, x, y):
+    def __init__(self, x, y, ball_color_list):
         self.x = x
         self.y = y
         self.speed = random.randint(1, 15) # Random number provides the speed of the ball when it's initialized
         self.dir_x = 1 # Set direction for x
         self.dir_y = 1 # Set direction for y
         self.radius = random.randint(5, 50) # Provide random size for the balls
+        self.ball_color = ball_color_list[random.randint(0, len(ball_color_list) - 1)]
 
     def update(self, width, height):
         self.x += self.dir_x * self.speed
@@ -22,8 +23,8 @@ class Ball(object):
         if self.y - self.radius < 0:
             self.dir_y = 1
 
-    def render(self, screen, ball_color):
-        pygame.draw.circle(screen, (ball_color), (self.x, self.y), self.radius)
+    def render(self, screen):
+        pygame.draw.circle(screen, (self.ball_color), (self.x, self.y), self.radius)
 
 
 def main():
@@ -47,12 +48,15 @@ def main():
     ball_red_color = 255, 0, 0
     ball_aqua_color = 0, 255, 255
     ball_silver_color = 192, 192, 192
-    ball_color = [
+    ball_magenta_color = 255, 0, 255
+    ball_navy_color = 0, 0, 128
+    ball_color_list = [
         ball_red_color,
         ball_aqua_color,
-        ball_silver_color
+        ball_silver_color,
+        ball_magenta_color,
+        ball_navy_color
     ]
-    random_ball_color = ball_color[random.randint(0, len(ball_color) - 1)]
 
 
     # initialize the pygame framework
@@ -71,11 +75,11 @@ def main():
     # PUT INITIALIZATION CODE HERE #
     ################################
     ball_list = {
-        Ball(50, 50),
-        Ball(200, 50),
-        Ball(50, 200),
-        Ball(50, 300),
-        Ball(300, 50)
+        Ball(50, 50, ball_color_list),
+        Ball(200, 50, ball_color_list),
+        Ball(50, 200, ball_color_list),
+        Ball(50, 300, ball_color_list),
+        Ball(300, 50, ball_color_list)
     }
 
     # game loop
@@ -104,7 +108,7 @@ def main():
         # PUT CUSTOM DISPLAY CODE HERE #
         ################################
         for ball in ball_list:
-            ball.render(screen, random_ball_color)
+            ball.render(screen)
 
         # update the canvas display with the currently drawn frame
         pygame.display.update()
