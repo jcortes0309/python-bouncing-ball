@@ -42,6 +42,14 @@ def main():
     random_bg_color = bg_color[random.randint(0, len(bg_color))]
     # declare the color of the Ball object
     ball_red_color = 255, 0, 0
+    ball_aqua_color = 0, 255, 255
+    ball_silver_color = 192, 192, 192
+    ball_color = [
+        ball_red_color,
+        ball_aqua_color,
+        ball_silver_color
+    ]
+    random_ball_color = ball_color[random.randint(0, len(ball_color))]
 
 
     # initialize the pygame framework
@@ -93,7 +101,7 @@ def main():
         # PUT CUSTOM DISPLAY CODE HERE #
         ################################
         for ball in ball_list:
-            ball.render(screen, ball_red_color)
+            ball.render(screen, random_ball_color)
 
         # update the canvas display with the currently drawn frame
         pygame.display.update()
