@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Ball(object):
     def __init__(self, x, y):
@@ -20,15 +21,28 @@ class Ball(object):
         if self.y - self.radius < 0:
             self.speed_y = 5
 
-    def render(self, screen):
-        pygame.draw.circle(screen, (255, 0, 0), (self.x, self.y), self.radius)
+    def render(self, screen, ball_color):
+        pygame.draw.circle(screen, (ball_color), (self.x, self.y), self.radius)
 
 
 def main():
     # declare the size of the canvas
     width = 500
     height = 500
-    blue_color = (97, 159, 182)
+    # declare the color of the canvas
+    bg_blue_color = (97, 159, 182)
+    bg_red_color = (255, 0, 0)
+    bg_black_color = (0, 0, 0)
+    bg_white_color = (255, 255, 255)
+    bg_color = [
+        bg_blue_color,
+        bg_black_color,
+        bg_white_color
+    ]
+    random_bg_color = bg_color[random.randint(0, len(bg_color))]
+    # declare the color of the Ball object
+    ball_red_color = 255, 0, 0
+
 
     # initialize the pygame framework
     pygame.init()
@@ -73,13 +87,13 @@ def main():
             ball.update(width, height)
 
         # fill background color
-        screen.fill(blue_color)
+        screen.fill(random_bg_color)
 
         ################################
         # PUT CUSTOM DISPLAY CODE HERE #
         ################################
         for ball in ball_list:
-            ball.render(screen)
+            ball.render(screen, ball_red_color)
 
         # update the canvas display with the currently drawn frame
         pygame.display.update()
