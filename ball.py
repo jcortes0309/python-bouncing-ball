@@ -41,13 +41,12 @@ def main():
     magenta = (255, 0, 255)
     navy = (0, 0, 128)
     # declare the colors to be used in the canvas
-    bg_color = [
+    bg_color_list = [
         blue,
         black,
         white
     ]
-    # random_bg_color = bg_color[random.randint(0, range(0, len(bg_color)))]
-    random_bg_color = bg_color[random.randint(0, len(bg_color) - 1)]
+    random_bg_color = bg_color_list[random.randint(0, len(bg_color_list) - 1)]
 
     # declare the color to be used by the Ball object
     ball_color_list = [
