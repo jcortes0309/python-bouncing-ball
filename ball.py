@@ -5,21 +5,22 @@ class Ball(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.speed_x = 5
-        self.speed_y = 5
-        self.radius = 50
+        self.speed = random.randint(1, 15) # Random number provides the speed of the ball when it's initialized
+        self.dir_x = 1 # Set direction for x
+        self.dir_y = 1 # Set direction for y
+        self.radius = random.randint(5, 50) # Provide random size for the balls
 
     def update(self, width, height):
-        self.x += self.speed_x
-        self.y += self.speed_y
+        self.x += self.dir_x * self.speed
+        self.y += self.dir_y * self.speed
         if self.x + self.radius > width:
-            self.speed_x = -5
+            self.dir_x = -1
         if self.y + self.radius > height:
-            self.speed_y = -5
+            self.dir_y = -1
         if self.x - self.radius < 0:
-            self.speed_x = 5
+            self.dir_x = 1
         if self.y - self.radius < 0:
-            self.speed_y = 5
+            self.dir_y = 1
 
     def render(self, screen, ball_color):
         pygame.draw.circle(screen, (ball_color), (self.x, self.y), self.radius)
