@@ -39,7 +39,9 @@ def main():
         bg_black_color,
         bg_white_color
     ]
-    random_bg_color = bg_color[random.randint(0, len(bg_color))]
+    # random_bg_color = bg_color[random.randint(0, range(0, len(bg_color)))]
+    random_bg_color = bg_color[random.randint(0, len(bg_color) - 1)]
+
     # declare the color of the Ball object
     ball_red_color = 255, 0, 0
     ball_aqua_color = 0, 255, 255
@@ -49,7 +51,7 @@ def main():
         ball_aqua_color,
         ball_silver_color
     ]
-    random_ball_color = ball_color[random.randint(0, len(ball_color))]
+    random_ball_color = ball_color[random.randint(0, len(ball_color) - 1)]
 
 
     # initialize the pygame framework
