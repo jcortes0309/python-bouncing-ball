@@ -31,31 +31,31 @@ def main():
     # declare the size of the canvas
     width = 500
     height = 500
-    # declare the color of the canvas
-    bg_blue_color = (97, 159, 182)
-    bg_red_color = (255, 0, 0)
-    bg_black_color = (0, 0, 0)
-    bg_white_color = (255, 255, 255)
+    # declare all colors to be used by the ball and canvas lists
+    blue = (97, 159, 182)
+    red = (255, 0, 0)
+    black = (0, 0, 0)
+    white = (255, 255, 255)
+    aqua = (0, 255, 255)
+    silver = (192, 192, 192)
+    magenta = (255, 0, 255)
+    navy = (0, 0, 128)
+    # declare the colors to be used in the canvas
     bg_color = [
-        bg_blue_color,
-        bg_black_color,
-        bg_white_color
+        blue,
+        black,
+        white
     ]
     # random_bg_color = bg_color[random.randint(0, range(0, len(bg_color)))]
     random_bg_color = bg_color[random.randint(0, len(bg_color) - 1)]
 
-    # declare the color of the Ball object
-    ball_red_color = 255, 0, 0
-    ball_aqua_color = 0, 255, 255
-    ball_silver_color = 192, 192, 192
-    ball_magenta_color = 255, 0, 255
-    ball_navy_color = 0, 0, 128
+    # declare the color to be used by the Ball object
     ball_color_list = [
-        ball_red_color,
-        ball_aqua_color,
-        ball_silver_color,
-        ball_magenta_color,
-        ball_navy_color
+        red,
+        aqua,
+        silver,
+        magenta,
+        navy
     ]
 
 
